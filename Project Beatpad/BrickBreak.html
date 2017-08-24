@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Brick Breaking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <link rel="stylesheet" href="BrickBreak.css">
+        <link rel="stylesheet" href="Framework7-1.6.4/dist/css/framework7.ios.min.css">
+        <link rel="stylesheet" href="Framework7-1.6.4/dist/css/framework7.ios.colors.min.css">
+    </head>
+    
+<body class="page layout-dark">
+<script type="text/javascript">
+"use strict";
+   
+ // bij het drukken met de muis speelt er de sound af
+function play(sound){
+   var audio = document.getElementById("audio");
+    audio.setAttribute('src', sound);
+   audio.play();
+}    
+// bij het gebruiken van een key word het geluid afgespeeld 
+const keyMap = new Map();
+
+document.addEventListener('keypress', function(e) {
+  const sound = keyMap.get(e.keyCode);
+  console.log(e.keyCode);
+  if (sound) {
+    createElement(sound);
+  }
+});
+
+function createElement(soundFile) {
+   const audio = document.createElement('audio');
+    const source = document.createElement('source');
+    source.setAttribute('src', soundFile);
+  audio.appendChild(source);
+  audio.load();
+  audio.play();
+}
+
+function voegGeluid(soundFile, key) {
+    keyMap.set(key, soundFile);
+}
+    voegGeluid('./Sound/01.wav', 65);
+    voegGeluid('./Sound/02.wav', 90); 
+    voegGeluid('./Sound/03.wav', 69);
+    voegGeluid('./Sound/04.wav', 82);
+    voegGeluid('./Sound/05.wav', 84);
+    voegGeluid('./Sound/06.wav', 81);
+    voegGeluid('./Sound/07.wav', 83);
+    voegGeluid('./Sound/08.wav', 68);
+    voegGeluid('./Sound/10.wav', 70);
+    voegGeluid('./Sound/11.wav', 71);
+    voegGeluid('./Sound/12.wav', 87);
+    voegGeluid('./Sound/13.wav', 88);
+    voegGeluid('./Sound/14.wav', 67);
+    voegGeluid('./Sound/15.wav', 86);
+    voegGeluid('./Sound/09.wav', 13);
+</script>
+    
+    <div id="head">
+        <h1>Soundboard</h1>
+            <h2>Speel met caps-lock aan</h2>
+                <audio id="audio"></audio>
+        <p class="buttons-row"><button onclick="play('./Sound/09.wav')">Play soundtrack OR<br> Press ENTER</button></p>                
+    </div>
+        
+    <div id="a">     
+    <p class="buttons-row">
+        <a onclick="play('./Sound/01.wav')" class="button button-fill color-red ">A <br> Work it</a>  
+        <a onclick="play('./Sound/02.wav')" class="button button-fill color-red">Z <br><br> Work It</a> 
+        <a onclick="play('./Sound/03.wav')" class="button button-fill color-red">E <br><br> Work It</a> 
+    </p>
+    <p class="buttons-row">
+        <a onclick="play('./Sound/04.wav')" class="button button-fill color-red">R </a>  
+        <a onclick="play('./Sound/05.wav')" class="button button-fill color-red">T </a>  
+        <a onclick="play('./Sound/06.wav')" class="button button-fill color-red">Q </a>  
+    </p>    
+    <p class="buttons-row">
+        <a onclick="play('./Sound/07.wav')" class="button button-fill color-red">S </a>  
+        <a onclick="play('./Sound/08.wav')" class="button button-fill color-red">D </a>  
+        <a onclick="play('./Sound/10.wav')" class="button button-fill color-red">F </a>  
+    </p> 
+        <p class="buttons-row">
+        <a onclick="play('./Sound/11.wav')" class="button button-fill color-red">G </a>  
+        <a onclick="play('./Sound/12.wav')" class="button button-fill color-red">W </a>  
+        <a onclick="play('./Sound/13.wav')" class="button button-fill color-red">X </a>  
+    </p>
+    </div>
+    
+</body>
+</html>
